@@ -4,7 +4,8 @@ from sklearn import datasets
 import pandas as pd
 
 
-app = Dash(__name__)
+external_css = ["https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"]
+app = Dash(__name__, external_stylesheets=external_css)
 server = app.server
 
 ############################ DATASET ###############################
@@ -54,8 +55,7 @@ avg_drop = dcc.Dropdown(id="avg_drop", options=wine.feature_names, value="malic_
                           clearable=False, className="text-dark p-2")
 
 ####################### LAYOUT #############################
-external_css = ["https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css", ]
-app = Dash(__name__, external_stylesheets=external_css)
+
 
 sidebar = html.Div([
     html.Br(),
